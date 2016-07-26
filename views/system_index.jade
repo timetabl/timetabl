@@ -1,0 +1,46 @@
+extends base
+
+block head
+  meta(name="description" content="연대, 이대, 서강대 학부 대상 시간표 작성 및 수업 정보 공유")
+  meta(name="keywords" content="타임테이블, 시간표, 수강, 학점, 수업, 연대, 연세대, 이대, 이화여대, 서강대")
+
+block body
+  .container.text-center
+    .margin4
+    h1.logo
+      svg(width="80" height="66")
+        image(width="80" height="66" alt="(로고)" src="/img/logo_l.png" xlink:href="/img/logo.svg")
+      |  timetabl
+    .margin2
+      ol.inline
+        li: a(accesskey="1" href="/t/") 시간표
+        li: a(accesskey="2" href="/calculator/") 계산기
+        li: a(accesskey="3" href="/rating/") 수업이야기
+        li: a(accesskey="4" href="/noticeboard/") 놀이터
+    p 연대, 이대, 서강대를 지원합니다.
+      if count
+        | <br> 이번 학기 <strong>#{numberFormat(count)}</strong>명이 참여 중.
+    if my.id
+      p.margin2 <strong>#{my.userid}</strong>로 로그인 하셨어요.
+        |  <a accesskey="-" href="/user/logout">로그아웃</a>
+      p 이 서비스를 유용하게 사용하셨다면, <br>
+        | 다른 학우들을 위해 수업이야기에도 글을 써 주세요!
+      p
+        a(href="//mitogi.blog.me/150104059173") 아이폰 팁!
+    unless my.id
+      form.form-inline(method="post" action="/user/login" autocapitalize="off" autocorrect="off")
+        p
+          label
+            != '별명 '
+            input.input-small(type="text" name="username" required)
+          != ' '
+          label
+            != '암호 '
+            input.input-small(type="password" name="password" required)
+          != ' '
+          button.btn.btn-primary(type="submit") 로그인
+        ul.inline
+          li: a(href="/user/add") 가입하기
+          li: a(href="/user/lost") 암호?!
+  include footer
+  include system_banner

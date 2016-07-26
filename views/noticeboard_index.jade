@@ -1,0 +1,73 @@
+extends inside
+
+block subtitle
+  | 놀이터 &ndash;
+
+block content
+  p.loading 쪽지를 찾고있어요~
+  p.error 인터넷 연결이 끊어졌어요!
+  .notes-cont
+    .cal-cont
+      select#month.month
+      #cal.cal
+    .pagelist-cont
+      #pagelist.pagelist
+    #chat.notes
+  #new.outer.color0(style="left:99%;top:10px")
+    if loggedin
+      form#new-form.new(name="newForm", method="post", action="/noticeboard/create")
+        .colors
+          label.color0(for="C0")
+          input#C0(type="radio", name="color", value="0", checked)
+          label.color1(for="C1")
+          input#C1(type="radio", name="color", value="1")
+          label.color2(for="C2")
+          input#C2(type="radio", name="color", value="2")
+          label.color3(for="C3")
+          input#C3(type="radio", name="color", value="3")
+          label.color4(for="C4")
+          input#C4(type="radio", name="color", value="4")
+          label.color5(for="C5")
+          input#C5(type="radio", name="color", value="5")
+        .inner
+          input(type="hidden", name="x", value="0.5")
+          input(type="hidden", name="y", value="10")
+          p
+            textarea(name="message", rows="7")
+          p.dotted
+            | 이름:
+            input.name(type="text", name="name")
+            input.submit(type="submit", value="남기기")
+    else
+      .inner
+        p.loginfirst 허가 받은 사용자만 글을 쓸 수 있어요.
+
+  if loggedin
+    form#reply(method="post", action="/noticeboard/reply", style="display: none")
+      input(type="hidden", name="id")
+      p.dotted
+        textarea(name="message", rows="5")
+      p.dotted 이름:
+        input.name(type="text", name="name")
+        input.submit(type="submit", value="남기기")
+
+  if admin
+    form(method="post" action="/noticeboard/hide")
+      input(type="text" name="id" placeholder="타래ID")
+      button(type="submit") 숨기기
+    form(method="post" action="/noticeboard/show")
+      input(type="text" name="id" placeholder="타래ID")
+      button(type="submit") 보이기
+    form(method="post" action="/user/mute")
+      input(type="text" name="id" placeholder="사용자ID")
+      button(type="submit") 1주일 막기
+    form(method="post" action="/user/release")
+      input(type="text" name="id" placeholder="사용자ID")
+      button(type="submit") 풀기
+
+  include noticeboard_banner
+
+  script(src="//ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js")
+  script(src="#{buildPrefix}/js/jquery.history.js")
+  script(src="#{buildPrefix}/js/noticeboard.js")
+  script document.body.style.backgroundColor='#ddd'

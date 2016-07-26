@@ -1,0 +1,57 @@
+extends base
+
+prepend title
+  != '계산기 – '
+
+block body
+  .margin2
+    include header
+  .container
+    .row
+      .span8
+        form.form-inline#grades(method="post" action="save")
+          table.table-calc
+            thead
+              tr
+                th
+                th 교과목명
+                th 학점
+                th 성적
+            - for (var sem = 0; sem < 20; sem++)
+              tbody
+                - for (var e = 0, i = sem * 12; e < 12; e++, i++)
+                  - var item = items[i] || DEFAULT_ITEM;
+                  tr(class={ hidden: !(e == 0 || item.subject || item.credits || item.grade) })
+                    if e == 0
+                      th #{sem & 1 ? '계절' : sem + 2 >> 1}학기
+                    else
+                      td
+                    td
+                      input(type="text" name="s[#{i}]" value="#{item.subject}")
+                    td
+                      input.input-mini(type="number" name="c[#{i}]" value="#{item.credits * 0.1 || ''}")
+                    td
+                      select.input-mini(name="g[#{i}]")
+                        option(value="0")
+                        each v, k in GRADES
+                          option(value=k selected=(item.grade == k))= v
+                tr
+                  td
+                  td
+                    button.btn(type="button" onclick="$(this).parents('tbody').children('.hidden').eq(0).removeClass('hidden')") 행 추가
+                  td.lead.text-center(id="subtotal#{sem}")
+                  td.lead.text-center(id="subgpa#{sem}")
+      .span4
+        dl
+          dt 평점
+          dd.lead#gpa 0.00
+          dt 이수 학점
+          dd.lead#total 0
+          dt 학기별 평점
+          dd.margin2#timeline
+          dt 성적 분포
+          dd.margin2#histogram
+  include footer
+  script(src="//www.google.com/jsapi?autoload={\"modules\":[{\"name\":\"visualization\",\"version\":\"1\",\"packages\":[\"corechart\"]}]}")
+  script(src="//ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js")
+  script(src="#{buildPrefix}/js/calc.js")

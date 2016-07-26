@@ -1,0 +1,246 @@
+primary-font-family = sans-serif
+logo-font-family = 'Magra', 'Trebuchet MS', sans-serif
+main-font-size = 13px
+
+width = 768px
+margin = 15px
+sub-margin = 10px
+half-margin = 7px
+quarter-margin = 4px
+main-radius = 2px
+small-radius = 2px
+
+primary-color = #3a6e74
+primary-color-shade = darken(primary-color, 20%)
+shaded-primary-color = darken(primary-color, 20%)
+
+vendor(prop, args)
+  -webkit-{prop} args
+  -moz-{prop} args
+  -ms-{prop} args
+  {prop} args
+
+body
+  margin-bottom 20px
+  background #eee
+  color #333
+  font-size main-font-size
+  text-rendering optimizelegibility
+  vendor('text-size-adjust', none)
+
+// body, input, button, select, textarea
+  // font-family primary-font-family
+
+a
+  color primary-color
+
+a:hover
+a:focus
+  background primary-color
+  color #fff
+  text-decoration none
+
+.nav > li > a:hover
+.nav > li > a:focus
+.nav-list > .active > a
+.nav-list > .active > a:hover
+.nav-list > .active > a:focus
+  background-color primary-color
+  text-shadow none
+
+address
+  text-align center
+
+dd
+  margin-left 0
+
+label
+  font-size main-font-size
+
+select
+textarea
+input[type="text"]
+input[type="password"]
+input[type="number"]
+input[type="email"]
+  border-radius main-radius
+  font-size main-font-size
+
+.row
+  margin-left -20px
+
+for i in (1..12)
+  .span{i}
+    width 62px * i - 20px
+    margin-left 20px
+
+  .offset{i}
+    margin-left 62px * i + 20px
+
+@media (max-width: 767px)
+  .row
+    margin-left 0
+
+  for i in (1..12)
+    .span{i}
+      float none
+      width 100%
+      margin-left 0
+
+    .offset{i}
+      margin-left 0
+
+.btn
+  border-radius main-radius
+  box-shadow none
+  font-size 13px
+  background #f8f8f8
+
+  &:hover
+  &:focus
+  &:active
+  &.active
+  &.disabled
+  &[disabled]
+    background #eee
+
+.btn-primary
+  background primary-color
+
+  &:hover
+  &:focus
+  &:active
+  &.active
+  &.disabled
+  &[disabled]
+    background shaded-primary-color
+
+.btn-danger
+  background #f03
+
+  &:hover
+  &:focus
+  &:active
+  &.active
+  &.disabled
+  &[disabled]
+    background darken(#f03, 20%)
+
+.container
+  max-width 724px
+
+.page-header
+  border-bottom-color #ccc
+
+.well
+  border 0
+  padding-top 10px
+  padding-bottom 10px
+  background #fff
+  box-shadow none
+
+.text-u1
+  color #b20000
+
+.text-u2
+  color #061b55
+
+.text-u3
+  color #162b65
+
+.text-u4
+  color #3ac89a
+
+.small
+  font-size 85%
+
+.inline
+  display inline
+
+for i in (0..6)
+  .margin{i}
+    margin-bottom 10px * i
+
+.columns2
+  vendor('columns', 2)
+
+.text-wrap
+  white-space pre-wrap
+  *white-space pre
+  *word-wrap break-word
+
+.text-ellipsis
+  overflow hidden
+  white-space nowrap
+  text-overflow ellipsis
+
+ol.pages
+  margin 0 auto 20px
+  text-align center
+  line-height 2
+
+  li
+    display inline
+
+  a
+    display inline-block
+    vertical-align top
+    overflow hidden
+    min-width 1em
+    height 2em
+    margin 0 1px
+    padding 0 .5em
+    border-radius 1em
+    background #eee
+    line-height 2
+
+  li.active a
+  a:hover
+  a:active
+    background primary-color
+    color #fff
+
+.logo
+  font-family logo-font-family
+  font-size 52px
+  color primary-color
+
+  a:hover
+  a:focus
+    color shaded-primary-color
+    background 0
+
+  img
+  svg
+    vertical-align -11px
+
+.loading
+.failed
+  position fixed
+  top 0
+  left 0
+  right 0
+  padding 2px
+  background #fc0
+  text-align center
+
+.failed
+  background #f03
+  color #fff
+
+.table-calc > tbody > tr > th:first-child
+  padding-right 10px
+  text-align right
+
+* > .old-browser
+  display none !important
+  background #fe0
+  margin-bottom 0
+  text-align center
+
+@import 'header'
+
+@media (max-width: 767px)
+  .header
+    margin-right -20px
+    margin-left -20px

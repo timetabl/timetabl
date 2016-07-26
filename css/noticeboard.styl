@@ -1,0 +1,295 @@
+.notes-cont
+  background #eee
+
+.cal-cont
+  width: 740px
+  margin: 0 auto
+  padding: 4px 0 4px 10px
+
+.month
+  float: left
+  margin-right: 10px
+
+.cal
+  _zoom: 1
+  overflow: hidden
+  font-family: Tahoma, Arial, sans-serif
+  text-align: center
+
+.cal a
+  overflow: hidden
+  float: left
+  width: 20px
+  height: 20px
+  border-radius: 2px
+  color: #333
+  line-height: 20px
+
+.cal a:hover,
+.cal a.self
+  background-color: #2a676f
+  color: #fff
+
+.cal .sun
+  color: #f00
+
+.pagelist-cont
+  overflow: hidden
+  height: 20px
+  border-bottom: 1px solid #ccc
+
+.pagelist
+  text-align: center
+
+.pagelist a
+  overflow: hidden
+  display: inline-block
+  width: 16px
+  height: 16px
+  color: #3a6e74
+  font-family: Arial, sans-serif
+
+.pagelist a:before
+  content: ' '
+  overflow: hidden
+  display: block
+  width: 6px
+  height: 6px
+  margin: 5px
+  border-radius: 3px
+  background: #3a6e74
+
+.pagelist a:hover,
+.pagelist a.self
+  color: red
+
+.pagelist a:hover:before,
+.pagelist a.self:before
+  background: red
+
+.notes
+  _zoom: 1
+  position: relative
+  margin-right: 219px
+  list-style: none
+  letter-spacing: -1px
+  color: #666
+
+.colors
+  _zoom: 1
+  overflow: hidden
+  height: 14px
+  text-align: center
+
+.colors input
+  position: absolute
+  left: -99in
+
+.colors label
+  cursor: pointer
+  overflow: hidden
+  float: left
+  width: 36px
+  height: 14px
+  text-align: center
+  opacity: 0.3
+
+.color0 .colors .color0,
+.color1 .colors .color1,
+.color2 .colors .color2,
+.color3 .colors .color3,
+.color4 .colors .color4,
+.color5 .colors .color5,
+.colors label:hover
+  opacity: 1.0
+
+.outer
+  overflow: hidden
+  cursor: url(/img/grab.cur), default
+  position: absolute
+  width: 216px
+  border-radius: 0.5ex
+  padding: 1px 2px 2px 1px
+  background: url(/img/shadow20.png)
+
+:root .outer
+  cursor -webkit-grab
+  cursor -moz-grab
+  cursor grab
+  padding: 0
+  background: none
+  box-shadow: #666 0 1px 3px
+  -moz-box-shadow: #666 0 1px 3px
+  -webkit-box-shadow: #666 0 1px 3px
+
+.focus
+  z-index: 1
+
+.inner
+  overflow: hidden
+  width: 216px
+  border-radius: 0.5ex
+  background: #b8ebee
+
+label.color0,
+div.color0 .inner
+  background: #b8ebee
+
+label.color1,
+div.color1 .inner
+  background: #ffb41e
+
+label.color2,
+div.color2 .inner
+  background: #f16885
+
+label.color3,
+div.color3 .inner
+  background: #addc39
+
+label.color4,
+div.color4 .inner
+  background: #ffe64d
+
+label.color5,
+div.color5 .inner
+  background: #eeeeee
+
+label.color6,
+div.color6 .inner
+  background: #666666
+  color: #fff
+
+.dragged
+  z-index: 8 !important
+  cursor: url(/img/grabbing.cur), move
+
+:root .dragged
+  cursor -webkit-grabbing
+  cursor -moz-grabbing
+  cursor grabbing
+
+.notes p
+  margin: 0
+  line-height: 1.4
+
+.notes a
+  text-decoration: underline
+  color: #09c
+
+.notes a:hover
+  background: transparent
+
+.loginfirst
+  padding: 2em 0
+  text-align: center
+  font-weight: bolder
+  font-size: 11px
+
+.message
+  padding: 3px 5px 4px
+  border-top: 1px dotted #999
+  border-top: 1px dotted rgba(0,0,0,.4)
+
+.message:only-of-type
+  min-height: 60px
+
+.message:first-child
+  border-top: 0
+
+.dotted
+  padding-top: 1px
+  border-top: 1px dotted #999
+  border-top: 1px dotted rgba(0,0,0,.4)
+
+.message span
+  font-size: 11px
+  font-family: Dotum, sans-serif
+  color: #666
+
+.notes form
+  text-align: right
+
+
+.inner
+  textarea
+  input.name
+    padding: 2px 4px
+    background-color: transparent
+    color: inherit
+    letter-spacing: -1px
+    outline: 0
+    border: 0
+
+  textarea
+    display: block
+    overflow: auto
+    width: 208px
+    height: 150px
+    margin: 0 auto
+    line-height: 1.3
+
+  textarea:focus
+    background-color: rgba(255,255,255,0.4)
+
+  input.name
+    cursor: text
+    width: 100px
+    margin: 1px 0
+    padding-bottom: 1px
+    font-size 11px
+
+  input.name:focus
+    background-color: rgba(255,255,255,0.4)
+
+.new .inner textarea
+  height: 36px
+
+.message small
+  letter-spacing: 0
+  font-family: Tahoma, Arial, Dotum, sans-serif
+  color: #999
+
+.message small.new
+  color: #fff
+
+.action
+  overflow: hidden
+  border-top: 1px dotted #999
+  border-top: 1px dotted rgba(0,0,0,.4)
+  text-align: center
+
+.action a
+  overflow: hidden
+  display: block
+  font-size: 11px
+  font-weight: bolder
+  text-decoration: none
+
+.action a.reply
+  float: left
+  width: 100%
+  color: #999
+
+:root .action a.reply
+  color: rgba(0,0,0,0.3)
+
+.action a.reply:hover
+  background: #ccc
+  background: rgba(255,255,255,0.5)
+
+.admin
+  font-size: 10px
+
+.ban
+  margin 20px auto
+  text-align center
+
+  img
+    background #ccc
+    vertical-align top
+  
+  a:hover img
+    position relative
+    z-index 1
+    box-shadow 0 1px 4px rgba(0,0,0,0.5)

@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /user/
+Disallow: /calculator/
+Disallow: /timetable/
+Disallow: /support/listing/
+Disallow: /rating/show/

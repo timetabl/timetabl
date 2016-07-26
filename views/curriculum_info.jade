@@ -1,0 +1,23 @@
+p.univ(class="b#{univno}")
+  strong= shortUnivName(univno)
+  span.domain  &mdash; #{domain}
+.body
+  p.litid= litid
+  p.credits= credits
+  p.title= title
+  if lecturer
+    p.lecturer= lecturer
+  if time_txt && location_txt
+    p.time
+      img(src="/img/clock.gif", width="11", height="11", alt="때")
+      |  #{time_txt}
+      br
+      img(src="/img/location.gif", width="11", height="11", alt="장소")
+      |  #{location_txt}
+  p.compt
+    small 경쟁
+    |  #{numberFormat(competitors)}
+  if remark
+    p.remark
+      a(href="/rating/show/#{id}", target="_blank") 수업이야기
+      |  #{remark}

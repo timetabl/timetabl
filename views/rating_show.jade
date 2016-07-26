@@ -1,0 +1,77 @@
+extends base
+
+prepend title
+  | [#{shortUnivName(course.univ)}] #{course.title}
+  if course.lecturer
+    |  — #{course.lecturer}
+  != ' – 수업이야기 – '
+
+block body
+  .margin2
+    include header
+  .container
+    .row
+      .span8
+        include rating_banner
+        .well
+          p.small: strong(class="text-u#{course.univ}")= univName(course.univ)
+          h4
+            = course.title
+            if course.nickname
+              != ' '
+              small= course.nickname
+          p: big= course.lecturer
+          ul.unstyled.small
+            each e, index in lectures
+              li #{semesterName(e.semester)} / #{shorten(e.domain, 30)}
+                if e.credits
+                  |  / #{e.credits}학점
+          if blinded
+            p 관련 자료가 없어.
+          else if my.id
+            form(method="post" action="../create/#{course.id}")
+              textarea.input-block-level(name="comment" rows="5")
+              != ' '
+              button.btn.btn-primary(type="submit") 쓰기
+          else
+            p.text-error 글 쓰기는 로그인 먼저.
+          for comment in comments
+            blockquote
+              if admin
+                span.pull-right= comment.student_id
+              small 익명#{comment.anon_id} — #{formatDate(comment.created * 1000)}
+              if comment.hidden
+                del (삭제됨)
+                if admin
+                  form.margin0.text-right(name="hideoshow" method="post" action="../hideoshow")
+                    button.btn.btn-mini(type="submit" name="id" value=comment.id) 삭제 취소
+              else
+                span.text-wrap= comment.comment.trim()
+                if my.id === comment.student_id || admin
+                  form.margin0.text-right(name="hideoshow" method="post" action="../hideoshow")
+                    button.btn.btn-mini(type="submit" name="id" value=comment.id) 삭제
+          if pages > 1
+            ol.pages
+              - for (var b = Math.min(Math.max(10, page + 5), pages - 1), a = Math.max(0, b - 10), i = a; i <= b; i++)
+                li(class={ active: i == page })
+                  a(href="?p=#{i}")
+                    if i == a && a > 0
+                      | ...
+                    != i + 1
+                    if i == b && b < pages - 1
+                      | ...
+      .span4
+        if lectures_of_same_title[1]
+          h5 다른 교수명
+          ul.nav.nav-list.margin2
+            each l in lectures_of_same_title
+              li(class={ active: l.self })
+                a(href="/rating/show/#{l.id}")= l.lecturer || '(이름 없음)'
+        if lectures_of_same_lecturer[1]
+          h5 다른 교과목
+          ul.nav.nav-list.margin2
+            each l in lectures_of_same_lecturer
+              li(class={ active: l.self })
+                a(href="/rating/show/#{l.id}")= l.title
+        include rating_banner2
+  include footer

@@ -1,0 +1,953 @@
+.upgradeplz
+  height: 24px
+  font: bolder 13px Gulim,'굴림',sans-serif
+  text-align: center
+  white-space: nowrap
+
+.upgradeplz a
+  padding: 4px 0 1px
+  text-decoration: underline
+
+.leftside
+  float: left
+  width: 120px
+  height: 253px
+  text-align: center
+  _margin-right: -3px
+
+.semester
+  height: 26px
+  padding: 15px 0 0
+
+.semester select
+  background: #eee
+  border: 0
+  padding: 0
+  color: #333
+
+.scenarios
+  padding-bottom: 10px
+
+.scenarios a
+  display: block
+  overflow: hidden
+  height: 24px
+  line-height: 24px
+  color: #666
+  white-space: nowrap
+
+.scenarios a.s
+  background: #3a6d73
+  font-weight: bolder
+  letter-spacing: -1px
+  color: #fff
+
+.scenarios a.c
+  text-decoration: underline
+
+.scenarios a:hover
+  font-weight: bolder
+  letter-spacing: -1px
+
+.scenario-cmd input
+  margin: 2px 0
+
+.topside
+  overflow: hidden
+  height: 18px
+  margin 10px 0 0
+  padding: 0 116px 0 126px
+  text-align: right
+  color: #666
+  font-size: 11px
+  letter-spacing: -1px
+
+.undo
+  height: 30px
+
+.extern a
+  color: #06f
+  font-family: Tahoma,Dotum,'돋움',sans-serif
+  letter-spacing: 0
+
+.extern a:hover
+  text-decoration: underline
+
+.rightside
+  float: right
+  width: 100px
+  padding: 0 0 0 10px
+  _margin-left: -3px
+
+.totalcredits
+  float: left
+
+.totalcredits em
+  font-weight: bolder
+  font-family: Verdana, Arial, sans-serif
+  font-size: 12px
+  letter-spacing: 0
+  color: #f60
+
+.prefs
+  line-height: 22px
+  font-size: 11px
+  letter-spacing: -1px
+
+.prefs h2
+  color: #999
+
+.prefs input
+  vertical-align: middle
+
+.prefs label
+  padding-left: 5px
+
+.goSearch
+  position: absolute
+  z-index: -1
+  top: -99in
+  left: -99in
+  visibility: hidden
+
+.middle
+  zoom: 1
+  overflow: hidden
+
+.lessons table
+  cursor: default
+  table-layout: fixed
+  width: 100%
+  background: #fff
+  border-collapse: separate
+
+.lessons thead th,
+.lessons thead td
+  color: #666
+  background: #ffd400 url(/img/lessons_thead.gif) repeat-x
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffe35a), to(#ffd400))
+  background-image: -webkit-linear-gradient(#ffe35a, #ffd400)
+  background-image: -moz-linear-gradient(#ffe35a, #ffd400)
+  background-image: -ms-linear-gradient(#ffe35a, #ffd400)
+  background-image: -o-linear-gradient(#ffe35a, #ffd400)
+  background-image: linear-gradient(#ffe35a, #ffd400)
+  border-top: 1px solid #e9c100
+  border-bottom: 1px solid #e9c100
+  border-right: 1px solid #e9c100
+  font-size: 11px
+  line-height: 21px
+
+.lessons thead th
+  width: 36px
+
+.lessons thead th.t
+  border-left: 1px solid #e9c100
+
+.lessons thead td
+  text-align: center
+  font-weight: bolder
+
+.lessons tbody th,
+.lessons tbody td
+  vertical-align: top
+  border-right: 1px solid #ccc
+  border-bottom: 1px solid #ccc
+
+.lessons tbody th
+  padding: 4px 0
+  text-align: center
+  font-size: 11px
+  font-family: Tahoma, Arial, sans-serif
+  color: #999
+  background: #f8f8f8
+
+.lessons tbody th.t
+  border-left: 1px solid #ccc
+
+.lessons tbody td
+  cursor: text
+
+.hide-r0 .r0,
+.hide-r1 .r1,
+.hide-r2 .r2,
+.hide-r3 .r3,
+.hide-r4 .r4,
+.hide-r5 .r5,
+.hide-r6 .r6,
+.hide-r7 .r7,
+.hide-r8 .r8,
+.hide-r9 .r9,
+.hide-r10 .r10,
+.hide-r11 .r11,
+.hide-r12 .r12,
+.hide-r13 .r13,
+.hide-r14 .r14,
+.hide-r15 .r15,
+.hide-r16 .r16,
+.hide-r17 .r17,
+.hide-r18 .r18,
+.hide-r19 .r19
+  display: none
+
+.till-d5 .d6,
+.till-d5 .d7,
+.till-d6 .d7
+  overflow: hidden
+  width: 0
+  border: 0
+
+.lessons .non-empty
+  background: #f8f8f8
+
+.lessons .overflow
+  background: #fdd
+
+.lessons .preview
+  background: #ffc
+
+*>.lessons .non-empty.preview
+  background: #fdd
+
+.lessons p
+  zoom: 1
+  padding: 3px 4px
+  text-align: center
+  line-height: 16px
+  background: none no-repeat 100% 0
+  cursor: default
+  _behavior: url(/js/hover.htc)
+
+.lessons p:hover
+  background-color: #f8f8f8
+
+.lessons p.H
+  background-color: #f8f8f8 !important
+
+.lessons p ~ p,
+.lessons textarea ~ p
+  border-top: 1px dashed #ccc
+
+.lessons i
+  display: none
+
+.lessons .o1
+  background-image: url(/img/lessoncell1.gif)
+
+.lessons .o2
+  background-image: url(/img/lessoncell2.gif)
+
+.lessons .o3
+  background-image: url(/img/lessoncell3.gif)
+
+.lessons .o4
+  background-image: url(/img/lessoncell4.gif)
+
+.lessons .o5
+  background-image: url(/img/lessoncell5.gif)
+
+.lessons .o6
+  background-image: url(/img/lessoncell6.gif)
+
+.lessons .o7
+  background-image: url(/img/lessoncell7.gif)
+
+.lessons .o8
+  background-image: url(/img/lessoncell8.gif)
+
+.lessons .o9
+  background-image: url(/img/lessoncell9.gif)
+
+.lessons .o10
+  background-image: url(/img/lessoncell10.gif)
+
+.lessons .o11
+  background-image: url(/img/lessoncell11.gif)
+
+.lessons .o12
+  background-image: url(/img/lessoncell12.gif)
+
+.lessons .o13
+  background-image: url(/img/lessoncell13.gif)
+
+.lessons .o14
+  background-image: url(/img/lessoncell14.gif)
+
+.lessons .o15
+  background-image: url(/img/lessoncell15.gif)
+
+.lessons .memo
+  color: #666
+  cursor: text
+  white-space: pre-wrap
+  white-space: pre-line
+
+.lessons .memo:hover
+  background-color: transparent
+  text-decoration: underline
+
+.lessons .memoH
+  background-color: transparent
+  text-decoration: underline
+
+.lessons
+.nolesson
+
+  .litid
+    font-size: 11px
+    font-family: Verdana, Arial, sans-serif
+    color: #765
+
+  .nickname
+    white-space: nowrap
+
+  .location
+    font-size: 11px
+
+  .lecturer
+    color: #567
+
+  .title,
+  .nickname
+    color: #333
+    cursor: help
+    font-weight: bolder
+
+  .title:hover,
+  .nickname:hover
+    text-decoration: underline
+
+.lessons textarea
+  display: block
+  overflow: auto
+  width: 90%
+  height: 60px
+  padding: 3px 4px
+  border: 0
+  background: #ffd
+  text-align: center
+  line-height: 16px
+
+.remove
+  overflow: hidden
+  background: url(/img/del.gif) no-repeat 100% 0
+  text-indent: -99in
+
+.remove:hover
+  background-position: 100% -20px
+
+.lessons .remove
+  display: none
+  float: right
+  width: 18px
+  height: 16px
+  position: relative
+  margin-left: -18px
+  background-color: #f8f8f8
+
+.lessons p:hover .remove
+  display: block
+  background-color: #f8f8f8
+
+.nolesson .remove
+  display: block
+  float: left
+  width: 13px
+  height: 13px
+  margin-right: 6px
+
+.lessons .title,
+.nolesson .title,
+.hide-litid .litid,
+.hide-nickname .nickname,
+.hide-location .location,
+.hide-lecturer .lecturer
+  display: none
+
+.hide-nickname .title
+  display: inline
+
+.nolesson
+  cursor: default
+  padding: 10px
+  list-style: none
+
+.nolesson li
+  height: 20px
+
+.info
+  display: none
+  position: absolute
+  z-index: 1
+  overflow: hidden
+  width: 180px
+  box-shadow: rgba(0,0,0,0.4) 0 1px 3px
+  -moz-box-shadow: rgba(0,0,0,0.4) 0 1px 3px
+  -webkit-box-shadow: rgba(0,0,0,0.4) 0 1px 3px
+
+.info .univ
+  overflow: hidden
+  white-space: nowrap
+  padding: 3px 8px
+  font-size: 11px
+  line-height: 1
+  color: #fff
+
+.info .body
+  width: 178px
+  margin: 0
+  padding: 0
+  border-color: #999
+  border-style: solid
+  border-width: 0 1px 1px
+  background-color: rgba(255,255,255,.9)
+
+.info .domain
+  color: #ccc
+
+.info .litid
+  padding: 3px 8px 0
+
+.info .credits
+  float: right
+  margin: 0 8px
+  color: #f00
+  font-family: Tahoma, Arial, sans-serif
+  font-size: 14px
+  font-weight: bolder
+
+.info .title
+  overflow: hidden
+  white-space: nowrap
+  text-overflow: ellipsis
+  margin: 0 8px
+  font-family: NanumGothic, '나눔고딕', Malgun Gothic, '맑은 고딕', Gulim, '굴림', sans-serif
+  font-size: 14px
+  font-weight: bolder
+
+.info .nickname
+  display: none
+  margin: 4px 8px
+
+.info .lecturer
+  margin: 3px 8px 0
+  white-space: nowrap
+  text-overflow: ellipsis
+
+.info .time,
+.info .compt
+  margin: 4px 8px 0
+
+.info .remark
+  margin: 4px 0 0
+  border-top: 1px dotted #999
+  padding: 4px 8px 6px
+  line-height: 15px
+  font-size: 11px
+
+.info .remark a
+  float: left
+  overflow: hidden
+  width: 16px
+  height: 16px
+  background: url(/img/plan2.gif) 0 50% no-repeat
+  text-indent: -99in
+
+.info .remark a:hover
+  background-position: -100px 50%
+
+.info img
+  vertical-align: middle
+
+.info small
+  letter-spacing: -1px
+  font-size: 11px
+  color: #999
+
+.grab-lesson,
+.grab-lesson *,
+.grab-scenario,
+.grab-scenario *
+  cursor: not-allowed
+
+.grab-lesson .cursor,
+.grab-scenario .cursor
+  display: block
+
+.grab-lesson .scenarios a,
+.grab-scenario .scenarios a
+  cursor: default
+
+.grab-lesson .scenarios a:hover,
+.grab-scenario .scenarios a:hover
+  background: #d0dde0
+  border-color: #9cf
+
+.cursor
+  display: none
+  position: absolute
+  overflow: hidden
+  height: 13px
+  margin: 0 0 0 12px
+  border: 1px solid #999
+  padding: 2px 3px
+  background: #fff
+  font-size: 11px
+
+.cursor strong
+  color: #06c
+
+:root .cursor
+  background: rgba(255,255,255,0.8)
+
+.resultprefs
+  position: absolute
+  top: 0
+  right: 0
+  height: 28px
+  padding: 0 10px
+  line-height: 28px
+  font-size: 11px
+
+.resultprefs input
+  vertical-align: middle
+
+.resultprefs,
+.resultsetlabel
+  background: #bbb url(/img/resultsetlabelbg.gif) repeat-x 0 1px
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#bbb), to(#b2b2b2))
+  background-image: -webkit-linear-gradient(#bbb, #b2b2b2)
+  background-image: -moz-linear-gradient(#bbb, #b2b2b2)
+  background-image: -ms-linear-gradient(#bbb, #b2b2b2)
+  background-image: -o-linear-gradient(#bbb, #b2b2b2)
+  background-image: linear-gradient(#bbb, #b2b2b2)
+
+.resultsetlabel
+  overflow: hidden
+  height: 24px
+  padding: 4px 10px 0
+  line-height: 23px
+  white-space: nowrap
+
+.resultsetlabel span
+  float: left
+  padding: 1px 8px 0 4px
+  color: #666
+  font-weight: bolder
+
+.resultsetlabel a
+  float: left
+  overflow: hidden
+  text-overflow: ellipsis
+  max-width: 14%
+  height: 22px
+  margin-right: 3px
+  border: 1px solid #999
+  border-radius: 4px 4px 0 0
+  padding: 0px 12px
+  background: #ccc
+  color: #333
+
+.resultsetlabel a:hover
+  background: #ddd
+
+.resultsetlabel a:focus
+  outline: 0
+
+.resultsetlabel a.s
+  border-bottom-color: #eee
+  background: #eee url(/img/resultsetlabelhead.gif) repeat-x
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#eee))
+  background-image: -webkit-linear-gradient(#fff, #eee)
+  background-image: -moz-linear-gradient(#fff, #eee)
+  background-image: -ms-linear-gradient(#fff, #eee)
+  background-image: -o-linear-gradient(#fff, #eee)
+  background-image: linear-gradient(#fff, #eee)
+
+.searchform
+  overflow: hidden
+  padding: 6px 0
+  border-bottom: 1px solid #999
+  text-align: center
+  background: #eee url(/img/searchformbg.png) 0 100% repeat-x
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#eee), to(#dadada))
+  background-image: -webkit-linear-gradient(#eee, #dadada)
+  background-image: -moz-linear-gradient(#eee, #dadada)
+  background-image: -ms-linear-gradient(#eee, #dadada)
+  background-image: -o-linear-gradient(#eee, #dadada)
+  background-image: linear-gradient(#eee, #dadada)
+  white-space: nowrap
+
+.searchform input:focus
+  outline: 0
+
+.searchform input,
+.searchform select
+  vertical-align: middle
+
+.searchform .statement
+  width: 400px
+  height: 22px
+  border: 2px solid #ccc
+  border-right: 0
+  padding: 0 3px
+  line-height: 22px
+  font-family: NanumGothic, '나눔고딕', Malgun Gothic, '맑은 고딕', Gulim, '굴림', sans-serif
+  font-size: 16px
+
+.searchform .statement:focus
+  border-color: #3a6e74
+
+.searchform .statementF
+  border-color: #3a6e74
+
+.searchform .submit
+  width: 40px
+  height: 26px
+  border: 0
+  border-radius: 0 2px 2px 0
+  box-shadow: inset 0 0 1px rgba(0,0,0,0.5)
+  background: url(/img/btnsrch.png) 100% 0
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#89a8ac), to(#3a6e74))
+  background-image: -webkit-linear-gradient(#89a8ac, #3a6e74)
+  background-image: -moz-linear-gradient(#89a8ac, #3a6e74)
+  background-image: -ms-linear-gradient(#89a8ac, #3a6e74)
+  background-image: -o-linear-gradient(#89a8ac, #3a6e74)
+  background-image: linear-gradient(#89a8ac, #3a6e74)
+  color: #ddd
+  font-weight: bolder
+  _behavior: url(/js/hover.htc)
+
+.searchform .submit:hover
+  color: #fff
+
+.searchform .submitH
+  color: #fff
+
+.searchform label
+  margin: 0 6px
+  font-size: 11px
+  letter-spacing: -1px
+  color: #666
+
+.searchform a
+  color: #06f
+
+.suggestion
+  display: none
+  overflow: scroll
+  overflow-x: hidden
+  position: absolute
+  left: 30%
+  width: 300px
+  height: 80px
+  border: 1px solid #ccc
+  padding: 4px 0
+  background: #fff
+  line-height: 20px
+
+.suggestion a
+  display: block
+  padding: 0 8px
+  color: #666
+
+.suggestion .c,
+.suggestion a:hover
+  background: #eef4f1
+  color: #333
+
+.help
+  display: none
+  overflow: hidden
+  width: 55em
+  margin: 0 auto
+  border: 1px solid #ccc
+  border-top: 0
+  padding: 10px
+  background-color: rgba(255,255,255,0.85)
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25)
+  -moz-box-shadow: 0 3px 10px rgba(0,0,0,0.25)
+  -webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.25)
+  line-height: 1.5
+
+.help dt
+  float: left
+  width: 6em
+  font-weight: bolder
+
+.help dd
+  overflow: hidden
+
+.help em
+  color: #f90
+  font-weight: bolder
+
+.resultset
+  overflow: hidden
+  position: absolute
+  z-index: -1
+  top: 0
+  *top: 67px
+  width: 100%
+  height: 100%
+  /* Opera has a bug that do not recalc when resized */
+  padding-top: 67px
+  *padding-top: 0
+  box-sizing: border-box
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  text-align: center
+  background: #fff
+
+.resultset div
+  display: none
+  height: 100%
+  overflow: auto
+  *overflow-x: hidden
+
+.resultset .wrap
+  display: inline
+  zoom: 1
+  height: auto
+  overflow: visible
+
+.resultset .ld
+  background: url(/img/dataload.gif) no-repeat 50%
+
+.resultset p a
+  color: #09f
+
+.resultset p a:hover
+  text-decoration: underline
+
+.resultset table
+  cursor: default
+  width: 100%
+  border-bottom: 1px solid #ddd
+  background: #fff
+
+.resultset thead td
+  border-top: 1px solid #b4bbc4
+  border-left: solid #a2a8b0 1px
+  text-align: center
+  font-weight: bolder
+  background: #b4bbc4 url(/img/resultsethead.gif) repeat-x
+  color: #666
+  white-space: nowrap
+  font-size: 11px
+  line-height: 19px
+
+.resultset tbody td
+  max-width: 300px
+  min-height: 22px
+  height: 22px
+  padding: 0 3px
+  border-left: solid #e5e5e5 1px
+  line-height: 1.25
+  cursor: default
+
+.resultset tbody td.k
+  width: 24px
+  padding: 0
+
+.resultset td:first-child
+  border-left: 0
+
+.resultset tr.a
+  background-color: #f2f5f9
+
+.resultset tr.a td
+  border-left-color: #d6dbdb
+
+.resultset tr:hover
+  background-color: #ffc
+
+.resultset tr.a:hover
+  background-color: #eef4c4
+
+.resultset table a
+  font-weight: bolder
+  color: #368
+
+.resultset table a:hover
+  text-decoration: underline
+
+.resultset span
+  display: block
+  margin: 0 auto
+
+.resultset .w4
+  width: 4em
+
+.resultset .w5
+  width: 5em
+
+.resultset .s
+  font-size: 11px
+  letter-spacing: -1px
+  color: #666
+
+.resultset .c
+  font-family: Tahoma, Arial, sans-serif
+
+.hide-remark td.m
+  display: none
+
+.resultset ins
+  text-decoration: none
+  border-bottom: 1px dotted #666
+
+.resultset a.f,
+.resultset a.i,
+.resultset a.r,
+.resultset a.y,
+.resultset a.n
+  float: left
+  width: 24px
+  height: 22px
+  background: no-repeat 6px
+  overflow: hidden
+  text-indent: -99in
+
+.resultset a.f
+  background-image: url(/img/fav2.gif)
+
+.resultset a.i
+  background-image: url(/img/plan2.gif)
+
+.resultset a.r
+  background-image: url(/img/btnspr.png)
+
+.resultset a.y
+  background-image: url(/img/btnspr.png)
+  background-position: -194px
+
+.resultset a.n
+  background-image: url(/img/nick.gif)
+
+.resultset a:hover
+  background-position: -94px
+
+.resultset a.y:hover
+  background-position: -294px
+
+.resultset a.on
+  background-position: -194px
+
+.resultset a.on:hover
+  background-position: -294px
+
+.nothing
+  padding: 8px 0
+
+.more
+  padding: 8px 0
+  color: #666
+
+.refs
+  padding: 6px 10px
+  text-align: right
+
+.refs a
+  color: #06f
+
+.refs a:hover
+  text-decoration: underline
+
+.extraside img
+  display block
+  position absolute
+  left 50%
+  margin-left 390px
+  top 45px
+
+@media print
+
+  body
+    background: #fff
+    color: #000
+    font 9pt/1.5 NanumGothic, '나눔고딕', 'Malgun Gothic', Dotum, sans-serif
+
+  .header-cont,
+  .loading,
+  .error,
+  .topside,
+  .leftside,
+  .rightside,
+  .nolesson,
+  .info,
+  .cursor,
+  address
+    display: none
+
+  a
+    color: #000
+
+  em
+    font-style: normal
+
+  table
+    table-layout: fixed
+    width: 100%
+    text-align: center
+    border-collapse: separate
+
+  th,
+  td
+    padding: 1mm
+
+  th
+    width: 2.5em
+    font-weight: normal
+
+  thead
+    white-space: nowrap
+
+  thead,
+  tbody th
+    font-size: 8pt
+
+  thead td
+    border-bottom: 0.5pt solid #000
+
+  tbody th.t
+    border-right: 0.5pt solid #000
+
+  tbody td
+    border-right: 0.5pt solid #000
+    border-bottom: 0.5pt solid #000
+
+  .hide-r0 .r0,
+  .hide-r1 .r1,
+  .hide-r2 .r2,
+  .hide-r3 .r3,
+  .hide-r4 .r4,
+  .hide-r5 .r5,
+  .hide-r6 .r6,
+  .hide-r7 .r7,
+  .hide-r8 .r8,
+  .hide-r9 .r9,
+  .hide-r10 .r10,
+  .hide-r11 .r11,
+  .hide-r12 .r12,
+  .hide-r13 .r13,
+  .hide-r14 .r14,
+  .hide-r15 .r15,
+  .hide-r16 .r16,
+  .hide-r17 .r17,
+  .hide-r18 .r18,
+  .hide-r19 .r19
+    display: none
+
+  .till-d5 .d6,
+  .till-d5 .d7,
+  .till-d6 .d7
+    overflow: hidden
+    width: 0
+    border: 0
+    padding: 0
+
+  .title
+    font-weight: bolder
+
+  .remove
+    display: none

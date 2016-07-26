@@ -1,0 +1,57 @@
+extends barebone
+
+block body
+  if ! list[0]
+    p.nothing 그런 거 하나도 없다.
+  else
+    .wrap
+      table
+        thead
+          tr
+            td(title="즐겨찾기") ♥
+            td(title="수업이야기") ...
+            td(title="수업계획서") i
+            td 구분
+            td 학년
+            td 교과목명
+            td(title="약칭 짓기") ()
+            td
+              span.w4 교수명
+            td 학점
+            td
+              span.w4 시간
+            td
+              span.w5 장소
+            td.m 비고
+            td.c(title="이 수업을 선택한 사람 수") 경쟁
+        tbody
+          for i, a in list.slice(0, 100)
+            tr(class=(a & 1 ? 'a' : ''))
+              td.k
+                if favorite[i.id]
+                  a.f.on(href="#f/#{i.id}", title="즐겨찾기") ♥
+                else
+                  a.f(href="#f/#{i.id}", title="즐겨찾지 않기") ♡
+              td.k
+                a.r(target="_blank", href="/rating/show/#{i.course_id}", title="수업이야기") ...
+              td.k
+                if hasPlan[i.univ]
+                  a.i(target="plan", href="i/#{i.id}", title="수업계획서") ⓘ
+              td.s= i.domain.replace(/([^,]+,[^,]+,).*/, '$1···')
+              td= [1,2,3,4,5,6].filter(function (e) { return i.year & 1 << e >> 1 }).join(',')
+              td
+                if wantNickname && i.nickname
+                  ins(title="#{i.title}")
+                    a(href="#a/#{i.id}")= i.nickname
+                else
+                  a(href="#a/#{i.id}")= i.title
+              td.k
+                a.n(href="#n/#{i.id}", target="_blank", title="약칭 짓기") ()
+              td= i.lecturer
+              td= String(i.credits).replace(/\.0$/, '')
+              td= i.time_txt
+              td= i.location_txt
+              td.m.s= i.remark
+              td.c= numberFormat(i.competitors)
+  if list.length > 100
+    p.more 검색된 수업이 너무 많아. 좀 더 조건을 넣어줘.

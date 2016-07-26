@@ -1,0 +1,32 @@
+= pages
+| ,
+= ymd
+| ,
+= page
+| ;
+for r in entries
+  .outer(id="n#{r.id}", class="color#{r.color}", style="left:#{Math.max(0, Math.min(100, r.x / 17))}%;top:#{r.y}px")
+    .inner
+      if admin
+        p.message= r.id
+      for m in r.messages
+        p.message(style="white-space:pre-wrap")
+          for subtext, index in trimmed(m.message).split(/(https?:\/\/\S+)/i)
+            if index % 2 == 0
+              q= subtext.replace(/\n{3,}/g, "\n\n")
+            else
+              a(href=subtext, target="_blank")= subtext
+          = ' '
+          small(class=(m.recentness && 'new'))= date2shortText(m.created * 1000)
+          if m.name
+            span(class="u#{detectUniv(m.name)}")  &mdash; #{m.name}
+          if admin
+            != ' '
+            = m.student_id
+      if r.messages.length < 20
+        if loggedin
+          .action
+            a.reply(href="#") 덧글▼
+      else
+        p.action 이 글타래는 더 쓸 수 없어요!
+

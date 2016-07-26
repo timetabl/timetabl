@@ -1,0 +1,34 @@
+extends base
+
+prepend title
+  | “#{keyword}” 검색 결과 – 수업이야기 –
+  != ' '
+
+block body
+  include header
+  .container
+    h4 수업 검색
+    form.form-inline
+      select.input-medium(name="univ")
+        each u in univs
+          option(value=u selected=(univ == u))= shortUnivName(u)
+      != ' '
+      input.input-xlarge(type="text" name="keyword" value=keyword required)
+      != ' '
+      button.btn.btn-primary(type="submit") 찾아줘
+    h4 <q class="text-info">#{keyword}</q> 검색 결과
+    .well.well-small
+      if ratings[0]
+        .columns2.margin1
+          ul.nav.nav-list
+            each r in ratings
+              li
+                a(href="show/#{r.id}")
+                  = r.title
+                  if r.lecturer
+                    |  — #{r.lecturer}
+        if ratings.length > 50
+          p ※ 검색 결과는 최대 50개까지만 보여드려요.
+      else
+        p 그런 거 없어.
+  include footer

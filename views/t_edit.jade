@@ -1,0 +1,91 @@
+extends inside
+
+block content
+  //if lt IE 8
+    p.upgradeplz 이딴 브라우저로는 시간표가 느릴 수 밖에 없어! 이런 브라우저 좀 써.
+      a(target="_blank", href="http://www.microsoft.com/korea/windows/internet-explorer/") 인터넷 익스플로러 8
+      = ' · '
+      a(target="_blank", href="https://www.google.com/chrome?hl=ko") 구글 크롬
+
+  p#loading.loading 전송 중입니다~
+  p#error.error 인터넷 연결이 끊어졌어요!
+
+  .topside
+    p.totalcredits
+      em#credits 0
+      |  학점
+    p#extern.extern 간단히 보기 ::
+      a(target="_blank", href="http://my.timetabl.com/#{my.userid}") http://my.timetabl.com/#{my.userid}
+
+  .leftside
+    #scenarios.scenarios
+      a.s(href="#1") 기본 시간표
+      a(href="#2") 시간표 하나
+      a(href="#3") 시간표 두울
+      a(href="#4") 시간표 세엣
+      a(href="#5") 시간표 네엣
+      a(href="#6") 시간표 다섯
+    p.scenario-cmd
+      input#copy-scenario(type="button", value="복사")
+      input#paste-scenario(type="button", value="붙여넣기", disabled)
+      br
+      input#empty-scenario(type="button", value="비우기")
+    .semester
+      select#semester
+        - for (var i = 1; i <= semesters; ++i)
+          option(value=i, selected=(i == semester))= semesterName(i)
+
+  .rightside
+    p.undo
+      input#undo(type="button", value="삭제 취소", disabled)
+    #prefs.prefs
+      h2 보기 설정
+      p
+        input#sw-nickname(type="checkbox", name="nickname")
+        label(for="sw-nickname") 약칭
+      p
+        input#sw-location(type="checkbox", name="location")
+        label(for="sw-location") 장소
+      p
+        input#sw-lecturer(type="checkbox", name="lecturer")
+        label(for="sw-lecturer") 교수
+      p
+        input#sw-hideempty(type="checkbox", name="hideempty")
+        label(for="sw-hideempty") 빈 칸 감추기
+    input#goSearch.goSearch(type="button", accesskey="s")
+
+  #hidectrl.middle
+    .lessons
+      table(cellspacing="0")
+        thead
+          tr
+            th.t 교시
+            td 월
+            td 화
+            td 수
+            td 목
+            td 금
+            td.d6 토
+            td.d7 일
+            th 시각
+        tbody#lessons
+          script.
+            (function() {
+                var s = [], T = #{JSON.stringify(range(0, maxPeriod[my.univ]).map(period2time[my.univ]))};
+                var f00 = function(n) { return (n + 100).toString().substring(1) };
+                for (var i = 0; i <= #{maxPeriod[my.univ]}; ++i) {
+                    s.push('<tr class=r', i, '><th class=t>', i);
+                    for (var j = 1; j <= 7; ++j)
+                        s.push('<td class=d', j, ' id=c', i * 10 + j, '><i></i>');
+                    s.push('<th>', f00(T[i] / 60 | 0), ':', f00(T[i] % 60));
+                }
+                document.write(s.join(''));
+            })();
+
+    ul#nolesson.nolesson
+
+  #info.info
+  #cursor.cursor
+
+  script(src="//ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js")
+  script(src="#{buildPrefix}/js/t.js")

@@ -1,0 +1,19 @@
+doctype
+html(lang="ko")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=Edge")
+    meta(name="viewport" content="minimum-scale=1,initial-scale=1")
+    title
+      block title
+        | 타임테이블
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css")
+    link(rel="stylesheet" href="#{buildPrefix}/css/all.css")
+    link(rel="stylesheet" href="//fonts.googleapis.com/css?family=Magra:700")
+    block head
+  body
+    p.old-browser.
+      이 문구가 보인다면 오래된 브라우저를 사용하는 겁니다.
+      서비스를 제대로 사용하기 어려울 수 있어요.
+    block body
+    script(src="#{buildPrefix}/js/googleaz.js")

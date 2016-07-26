@@ -1,0 +1,11 @@
+doctype
+html(lang="ko", style="border:0")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=Edge")
+    meta(name="viewport", content="width=768")
+    title #{semesterName(sid)} 시간표 – 타임테이블
+    script(src="#{buildPrefix}/js/googleaz.js")
+  frameset#frameset(rows="2*,1*", framespacing="4", bordercolor="#999")
+    frame(name="tframe", src="edit?s=#{sid}")
+    frame(src="data?s=#{sid}", scrolling="no")

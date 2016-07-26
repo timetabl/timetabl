@@ -1,0 +1,46 @@
+doctype
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="initial-scale=1.0,minimum-scale=1.0")
+    meta(name="apple-mobile-web-app-capable", content="yes")
+    title #{user.userid}의 #{semesterName(sid>>3)} 시간표
+    style.
+      html { -webkit-text-size-adjust: none }
+      body { background: transparent; color: #000; text-align: center; font: 12px sans-serif }
+      table { margin: auto }
+      th, td { padding: 0 3px }
+      thead td { border-bottom: 1px solid #ccc; color: #999; font: bolder 11px 돋움,Dotum,sans-serif }
+      tbody th { border-right: 1px solid #ccc; color: #999; font: bolder 11px Tahoma,Arial,sans-serif }
+      tbody td { width: 100px; border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; vertical-align: top }
+      ul { margin: 0; padding: 0; list-style: none }
+      li { margin: 2px 0; padding: 0 }
+      @media only screen and (max-width: 640px) {
+        body { margin: 0; background: #ddd; color: #333; text-shadow: 0 1px 0 #fff }
+        table { width: 100%; background: -webkit-gradient(linear, 0 0, 0 100%, from(#eee), to(#ddd)) }
+        thead > * { background: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#eee)); border: 0; padding: 1ex 0 }
+        tbody td { border-width: 1px; border-style: solid; border-color: #fff #ccc #ccc #fff }
+      }
+    //- tbody td:nth-of-type(<?php echo date('N', strtotime('+6hour')) ?>) { border-color: #3a6e74; color: #fff; text-shadow: 0 1px 0 #000; background: -webkit-gradient(linear, 0 0, 100% 100%, from(#578), to(#3a6e74)) }
+  body
+    if isFinite(last_day)
+      table(cellspacing="0")
+        thead
+          tr
+            th
+            for e in [ '월', '화', '수', '목', '금', '토', '일' ].slice(first_day - 1, last_day)
+              td= e
+        tbody
+          - for (var t = first_time; t <= last_time; ++t)
+            tr
+              th
+                - var time = period2time[user.univ](t)
+                | #{('0' + (time / 60 | 0)).slice(-2)}:#{('0' + time % 60).slice(-2)}
+              - for (var d = first_day; d <= last_day; ++d)
+                td
+                  ul
+                    for e in cells[t * 10 + d] || []
+                      li= e
+    else
+      p 시간표가 비었음.
+    script var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-38614384-1"]);_gaq.push(["_setDomainName","timetabl.com"]);_gaq.push(["_trackPageview"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="//www.google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();

@@ -1,0 +1,53 @@
+extends base
+
+prepend title
+  != '설정 – '
+
+block body
+  include header
+  .container
+    h2 설정
+    form.well.form-inline(method="post" action="update" autocapitalize="off" autocorrect="off")
+      h4 개명하기
+      p 여기는 아무 생각이 없는 곳이라 아이디도 바꿀 수 있어요.
+      p
+        label
+          | 아이디를 <strong>#{userid}</strong>에서
+          != ' '
+          input.input-small(type="text" name="userid" value=userid maxlength="16" required pattern="\\S{3,16}")
+        != '로 '
+        button.btn.btn-primary(type="submit") 변신
+    unless email
+      form.well.form-inline(method="post" action="update")
+        h4 이메일 변경
+        p 암호를 잊어먹었을 때 이 이메일 주소를 사용해요.
+        p
+          label
+            != '이메일 '
+            input(type="email" name="email" required)
+          != ' '
+          button.btn.btn-primary(type="submit") 바꾸기
+    form.well.form-inline(method="post" action="update")
+      h4 암호 변경
+      p 암호도 물론 바꿀 수 있지요 두 번 입력 아시죠?
+      p
+        label
+          != '암호 '
+          input.input-small(type="password" name="passwd" required pattern="\\S{6,}")
+        != ' '
+        label
+          != '(한 번 더) '
+          input.input-small(type="password" name="passwd2" required pattern="\\S{6,}")
+        != ' '
+        button.btn.btn-primary(type="submit") 바꾸기
+    form.well.form-inline(method="post" action="delete")
+      h4 떠나기
+      p 탈퇴를 원하세요? 정말? 진짜로? 난 괴롭힌 적 없는데?!<br>
+        | 그래도 원한다면 아래 체크하고 버튼을 누르세요.
+      p
+        label.checkbox.inline
+          input(type="checkbox" name="sure" required)
+          |  진심입니다.
+        != ' '
+        button.btn.btn-danger(type="submit") (~_~)//
+  include footer

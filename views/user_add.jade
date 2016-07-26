@@ -1,0 +1,40 @@
+extends base
+
+block body
+  include header
+  .container
+    .page-header
+      h2 환영해요!
+    form.form-inline(method="post" autocapitalize="off" autocorrect="off")
+      p
+        label
+          != '별명 '
+          input.input-small(type="text" name="userid" maxlength="16" required pattern="\\S{3,16}" autofocus)
+        |  학번은 피해주세요.
+      p
+        label
+          != '암호 '
+          input.input-small(type="password" name="passwd" required pattern="\\S{6,}")
+        != ' '
+        label
+          != '(한 번 더) '
+          input.input-small(type="password" name="passwd2" required pattern="\\S{6,}")
+        |  실수하지 않도록 조심조심~
+      p
+        label
+          != '이메일 '
+          input(type="email" name="email" maxlength="100" required)
+        |  암호를 잊었을 때 사용됩니다.
+      .margin1
+        ul.inline
+          each e in SCHOOLS
+            li
+              label.text-center
+                img(src="/img/univ/#{e.img}.png" width="118" height="118" alt=e.name)
+                br
+                | #{e.name} #{e.remark}
+                br
+                input(type="radio" name="univ" value="#{e.value}" required)
+      p: button.btn.btn-primary(type="submit") 가입하기
+  include footer
+  script(src="#{buildPrefix}/js/user_add.js")

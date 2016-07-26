@@ -1,0 +1,21 @@
+extends base
+
+block body
+  include header
+  .container
+    .page-header
+      h2 암호를 잊으셨다구요?!
+    form(method="post")
+      p 이메일을 등록하신 분은 임시로 변경할 수 있어요.
+      p
+        label
+          != '아이디 '
+          input.input-small(type="text" name="userid" autofocus required)
+      p
+        label
+          != '이메일 '
+          input(type="email" name="email" required)
+      p 새로 변경된 암호는 이메일로 보내드립니다.
+      p
+        button.btn.btn-primary(type="submit") 살려주세요
+  include footer

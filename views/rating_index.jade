@@ -1,0 +1,60 @@
+extends base
+
+prepend title
+  != '수업이야기 – '
+
+block body
+  .margin2
+    include header
+  .container
+    .row
+      .span8
+        if my.id
+          .well
+            h4 내 수업
+            each semester in Object.keys(my_lectures).reverse()
+              h6= semesterName(semester)
+              ul.nav.nav-list
+                each r in my_lectures[semester]
+                  li
+                    a(href="show/#{r.id}")
+                      = r.title
+                      if r.lecturer
+                        |  — #{r.lecturer}
+        include rating_banner
+        .well
+          h4 최근 이야기
+          - var x = {};
+          each r in ratings
+            - var datestr = formatDate(r.created * 1000);
+            - (x[datestr] = x[datestr] || []).push(r);
+          each xx, datestr in x
+            h6= datestr
+            ul.nav.nav-list
+              each r in xx
+                li
+                  a.text-ellipsis(href="show/#{r.lecture_id}")
+                    strong.small(class="text-u#{r.univ}")= shortUnivName(r.univ)
+                    |  #{r.title}
+                    if r.lecturer
+                      |  — #{r.lecturer}
+                    br
+                    small: q= trimmed(r.comment)
+          unless ratings[0]
+            p 황량하지? 뭐 좀 써 줘~
+      .span4
+        h4 수업 검색
+        form.form-inline(action="search")
+          select.input-medium(name="univ")
+            each univ in univs
+              option(value=univ selected=(my.univ == univ))= shortUnivName(univ)
+          != ' '
+          span.input-append
+            input.input-medium(type="text" name="keyword" required)
+            != ' '
+            button.btn.btn-primary(type="submit") 찾아줘
+        include rating_banner2
+        if top_choices
+          h4 #{number_of_students}명 중에...
+          ul.nav.nav-list!= top_choices.replace(/<em>([^<]*)<\/em>([^<]*)<strong>([^<]*)<\/strong>/g, '<span class="badge">$1</span> $3 — $2')
+  include footer

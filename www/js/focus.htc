@@ -1,0 +1,11 @@
+<public:attach event="onfocus" onevent="__focus()" />
+<public:attach event="onblur" onevent="__blur()" />
+<script>
+function __focus() {
+    element.className = element.className.replace(/\S+/g, '$& $&F') + ' H';
+}
+function __blur() {
+    element.className = element.className.replace(/\s+\S*F/g, '');
+}
+</script>
+

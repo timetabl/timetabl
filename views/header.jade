@@ -1,0 +1,25 @@
+.header
+  .container
+    .brand
+      a(href="/" target="_top" accesskey="`")
+        svg(width="30" height="24")
+          image(width="30" height="24" alt="(로고)" src="/img/logo_s.png" xlink:href="/img/logo_white.svg")
+        span.hidden-phone.hidden-m  timetabl
+    ul.unstyled
+      if my.id
+        li
+          a(href="/user/edit" target="_top" accesskey="0")
+            strong= my.userid
+            |  설정
+        li: a(href="/user/logout" target="_top" accesskey="-") 로그아웃
+      else
+        li: a(href="/" target="_top" accesskey="-") 로그인
+    ul.unstyled
+      li(class={ active: currentMenu == 'timetabl2' })
+        a(target="_top" accesskey="1" href="/t/") 시간표
+      li(class={ active: currentMenu == 'calculator' })
+        a(target="_top" accesskey="2" href="/calculator/") 계산기
+      li(class={ active: currentMenu == 'rating' })
+        a(target="_top" accesskey="3" href="/rating/") 수업이야기
+      li(class={ active: currentMenu == 'noticeboard' })
+        a(target="_top" accesskey="4" href="/noticeboard/") 놀이터

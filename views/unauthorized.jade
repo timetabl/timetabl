@@ -1,0 +1,23 @@
+extends base
+
+block body
+  .container.text-center
+    .margin4
+    h1.logo.margin4
+      a(href="/")
+        img(src="/img/logo.svg" width="80" height="66" alt="(로고)")
+        |  timetabl
+    p 로그인부터 해
+    form.form-inline.margin4(method="post" action="/user/login" autocapitalize="off" autocorrect="off")
+      p
+        != '별명 '
+        input.input-small(type="text" name="username" required autofocus)
+        != ' 암호 '
+        input.input-small(type="password" name="password" required)
+        != ' '
+        button.btn.btn-primary(type="submit") 로그인
+      ul.inline
+        li: a(href="/user/add") 가입하기
+        li: a(href="/user/lost") 암호?!
+    include footer
+    include system_banner

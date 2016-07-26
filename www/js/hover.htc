@@ -1,0 +1,10 @@
+<public:attach event="onmouseenter" onevent="__enter()" />
+<public:attach event="onmouseleave" onevent="__leave()" />
+<script>
+function __enter() {
+    element.className = element.className.replace(/\S+/g, '$& $&H') + ' H';
+}
+function __leave() {
+    element.className = element.className.replace(/\s+\S*H/g, '');
+}
+</script>

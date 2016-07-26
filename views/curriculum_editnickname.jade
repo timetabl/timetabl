@@ -1,0 +1,14 @@
+extends barebone
+
+block subtitle
+  | 약칭 짓기 –
+
+block body
+  form.setnickname(method="post")
+    h3 #{title}의 약칭은?
+    p
+      input(type="text", name="nickname", size="35", value=nickname)
+    p
+      input(type="submit", value="지어주기")
+    input(type="hidden", name="title", value=title)
+  script document.forms[0].elements[0].focus()

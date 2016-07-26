@@ -1,0 +1,13 @@
+extends base
+
+block body
+  .margin6
+    include header
+  .container.text-center.margin6
+    p= message
+    p
+      if typeof next == 'string'
+        a(href=next onclick="location.replace(this.href);return!1") 확인
+      else
+        button.btn.btn-primary(onclick="location.replace(document.referrer)") 돌아가기
+  include footer
